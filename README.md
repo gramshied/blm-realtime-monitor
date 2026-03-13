@@ -10,14 +10,22 @@ The architecture mirrors the data-acquisition workflow used in particle accelera
 
 ---
 
-## Architecture
+## System Architecture
+
+The system simulates a simplified beam instrumentation monitoring pipeline.
 
 Detector Simulation (C++)
-→ Lock-Free Ring Buffer
-→ Real-Time Monitoring
-→ Signal Logging
-→ Python PyQt6 Dashboard
-→ Live Signal Visualization
+↓
+Lock-Free Ring Buffer
+↓
+Real-Time Monitoring Thread
+↓
+Signal Logging
+↓
+Python PyQt6 Dashboard
+↓
+Live Signal Visualization & Alarm Detection
+
 
 ---
 
@@ -88,4 +96,28 @@ This project demonstrates techniques used in **real-time monitoring software for
 
 Gramshi E D
 
+## Monitoring Dashboard
+
+The dashboard visualizes detector signals in real time and highlights potential beam-loss events.
+
+Features:
+
+* Real-time signal plotting
+* Warning and critical thresholds
+* Automatic alarm detection
+* Continuous monitoring
+
 ![Dashboard](dashboard.png)
+
+![Dashboard](dashboard.png)
+
+## Engineering Concepts Demonstrated
+
+This project demonstrates several concepts used in real-time monitoring systems:
+
+* Multithreaded C++ data pipelines
+* Lock-free ring buffers for low-latency data streaming
+* Real-time signal processing
+* Automated CI builds with GitHub Actions
+* Python monitoring tools for operator interfaces
+
